@@ -11,3 +11,8 @@
 - name: check if global key exists in ceph_conf_overrides
   set_fact:
     global_in_ceph_conf_overrides: "{{ 'global' in ceph_conf_overrides }}"
+
+- name: set osd pool default pg num conditional when not using underscores
+  set_fact:
+    osd_pool_default_pg_num_in_overrides: "{{ 'osd pool default pg num' in ceph_conf_overrides.global }}"
+  when: global_in_ceph_conf_overrides

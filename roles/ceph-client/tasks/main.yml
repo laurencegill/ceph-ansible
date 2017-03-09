@@ -4,4 +4,4 @@
   when:
     - user_config
     - global_in_ceph_conf_overrides
-    - ceph_conf_overrides.global.osd_pool_default_pg_num is defined
+    - osd_pool_default_pg_num_in_overrides is defined
